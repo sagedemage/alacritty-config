@@ -9,6 +9,7 @@
 # Entries in shell.args are passed unmodified as arguments to the shell.
 [shell]
   program = "/usr/bin/bash"
+  args = ["-l", "-c", "tmux attach || tmux"]
 
 # Window
 # This section documents the [window] table of the configuration file.
