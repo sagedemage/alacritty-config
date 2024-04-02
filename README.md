@@ -6,7 +6,7 @@ My configuration file for the Alacritty terminal emulator.
 sudo apt install tmux
 ```
 
-# Install Alacritty from Source
+## Install Alacritty from Source
 [Install Alacritty from Source](./docs/install_alacritty_from_source.md)
 
 ## Alacritty Bindings
