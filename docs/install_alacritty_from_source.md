@@ -13,7 +13,7 @@ git checkout tags/v0.13.2
 
 Dependencies for Ubuntu
 ```
-sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 scdoc gzip
 ```
 
 Building on Linux
@@ -40,7 +40,6 @@ sudo update-desktop-database
 ```
 Install manual page for Alacritty with scdoc and gzip
 ```
-sudo apt install scdoc gzip
 sudo mkdir -p /usr/local/share/man/man1
 sudo mkdir -p /usr/local/share/man/man5
 scdoc < extra/man/alacritty.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null
