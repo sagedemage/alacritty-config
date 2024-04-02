@@ -1,0 +1,310 @@
+# Configuration for Alacritty, the GPU enhanced terminal emulator
+
+# General
+# This section documents the root level of the configuration file.
+
+# Shell
+#
+# You can set shell.program to the path of your favorite shell, e.g. /bin/fish.
+# Entries in shell.args are passed unmodified as arguments to the shell.
+[shell]
+  program = "/usr/bin/bash"
+
+# Window
+# This section documents the [window] table of the configuration file.
+[window]
+  # Window dimensions (changes require restart).
+
+  # Number of lines/columns (not pixels) in the terminal. Both lines and columns 
+  # must be non-zero for this to take effect. The number of columns must be at least 2, 
+  # while using a value of 0 for columns and lines will fall back to the window manager's 
+  # recommended size
+  dimensions = { columns = 82, lines = 24}
+
+  # Blank space added around the window in pixels. This padding is scaled by DPI 
+  # and the specified value is always added at both opposing sides.
+  padding = {x = 0, y = 0}
+
+  # Spread additional padding evenly around the terminal content.
+  dynamic_padding = false
+
+  # Window decorations.
+  #
+  # Full
+  # - Borders and title bar.
+  # None
+  # - Neither borders nor title bar.
+  decorations = "Full"
+
+  # Background opacity as a floating point number from 0.0 to 1.0. 
+  # The value 0.0 is completely transparent and 1.0 is opaque.
+  opacity = 1.0
+
+  # Startup Mode (changes require restart)
+  #
+  # Windowed
+  # - Regular window.
+  # Maximized
+  # - The window will be maximized on startup.
+  # Fullscreen
+  # - The window will be fullscreened on startup.
+  startup_mode = "Windowed"
+
+# Scrolling
+[scrolling]
+  # Maximum number of lines in the scrollback buffer.
+  # Specifying 0 will disable scrolling.
+  # Limited to 100000.
+  history = 10000
+
+  # Number of line scrolled for every input scroll increment.
+  multiplier = 3
+
+# Font
+[font]
+  normal = { family = "monospace", style = "Regular" }
+
+  # If the family is not specified, it will fall back to the value 
+  # specified for the normal font.
+  bold = { family = "monospace", style = "Medium"}
+
+  # If the family is not specified, it will fall back to the value 
+  # specified for the normal font.
+  italic = {family = "monospace", style = "Light Italic"}
+
+  # If the family is not specified, it will fall back to the value 
+  # specified for the normal font.
+  bold_italic = {family = "monospace", style = "Bold Italic"}
+
+  # Font size in points.
+  size = 11.25
+
+  # Offset is the extra space around each character. y can be thought of 
+  # as modifying the line spacing, and x as modifying the letter spacing.
+  offset = {x = 0, y = 0}
+
+  # Glyph offset determines the locations of the glyphs within their cells 
+  # with the default being at the bottom. Increasing x moves the glyph to 
+  # the right, increasing y moves the glyph upward.
+  glyph_offset = {x = 0, y = 0}
+
+  # When true, Alacritty will use a custom built-in font for box drawing 
+  # characters (Unicode points U+2500 - U+259F) and powerline symbols 
+  # (Unicode points U+E0B0 - U+E0B3).
+  builtin_box_drawing = true
+
+# Colors
+[colors]
+
+  # Horizon Dark (https://github.com/alacritty/alacritty-theme/blob/master/themes/horizon-dark.toml)
+  # Default colors
+  [colors.primary]
+    background = '#1c1e26'
+    foreground = '#e0e0e0'
+
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  [colors.cursor]
+    text = '#1d1f21'
+    cursor = '#ffffff'
+
+  # Normal colors
+  [colors.normal]
+    black = '#16161c'
+    red = '#e95678'
+    green = '#29d398'
+    yellow = '#fab795'
+    blue = '#26bbd9'
+    magenta = '#ee64ac'
+    cyan = '#59e1e3'
+    white = '#d5d8da'
+
+  # Bright colors
+  [colors.bright]
+    black = '#5b5858'
+    red = '#ec6a88'
+    green = '#3fdaa4'
+    yellow = '#fbc3a7'
+    blue = '#3fc4de'
+    magenta = '#f075b5'
+    cyan = '#6be4e6'
+    white = '#d5d8da'
+
+# Bell
+[bell]
+  # Visual bell animation effect for flashing the screen when the visual 
+  # bell is rung.
+  animation = "EaseOutExpo"
+  
+  # Duration of the visual bell flash in milliseconds. A `duration` of `0` 
+  # will disable the visual bell animation.
+  duration = 0
+
+  # Visual bell animation color.
+  color = '#ffffff'
+
+# Selection
+[selection]
+  # This string contains all characters that are used as separators for 
+  # "semantic words" in Alacritty.
+  semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+  # When set to true, selected text will be copied to the primary 
+  # clipboard.
+  save_to_clipboard = false
+
+# Cursor
+[cursor]
+  # Cursor style
+  # shape = "Block" | "Underline" | "Beam"
+  # blinking = "Never" | "Off" | "On" | "Always"
+  # - Never
+  #   - Prevent the cursor from ever blinking
+  # - Off
+  #   - Disable blinking by default
+  # - On
+  #   - Enable blinking by default
+  # - Always
+  #   - Force the cursor to always blink
+  style = {shape = "Block", blinking = "Off"}
+
+  # Cursor blinking interval in milliseconds.
+  blink_interval = 750
+
+  # Time after which cursor stops blinking, in seconds.
+  # Specifying 0 will disable timeout for blinking.
+  blink_timeout = 5
+
+  # When this is true, the cursor will be rendered as a hollow box when 
+  # the window is not focused.
+  unfocused_hollow = true
+
+  # Thickness of the cursor relative to the cell width as floating point 
+  # number from 0.0 to 1.0.
+  thickness = 0.15
+
+# Terminal
+[terminal]
+  # osc52 = "Disabled" | "OnlyCopy" | "OnlyPaste" | "CopyPaste"
+  # 
+  # Controls the ability to write to the system clipboard with the OSC 52 
+  # escape sequence. While this escape sequence is useful to copy contents 
+  # from the remote server, allowing any application to read from the 
+  # clipboard can be easily abused while not providing significant 
+  # benefits over explicitly pasting text.
+  osc52 = "OnlyCopy"
+
+# Mouse
+[mouse]
+  # When this is true, the cursor is temporarily hidden when typing.
+  hide_when_typing = false
+
+  # See keyboard.bindings for full documentation on mods, mode, action, 
+  # and chars.
+  #
+  # When an application running within Alacritty captures the mouse, the 
+  # `Shift` modifier can be used to suppress mouse reporting. If no action 
+  # is found for the event, actions for the event without the `Shift` 
+  # modifier are triggered instead.
+  #
+  # mouse = "Middle" | "Left" | "Right" | "Back" | "Forward" | <integer>
+  #
+  # - Mouse button which needs to be pressed to trigger this binding.
+  #
+  # action = <keyboard.bindings.action> | "ExpandSelection"
+  #
+  # - ExpandSelection
+  # 
+  #   - Expand the selection to the current mouse cursor location.
+  bindings = [
+	{ mouse = "Right", mods = "Control", action = "Paste" },
+  ]
+
+# Hints
+[hints]
+  # Terminal hints can be used to find text or hyperlinks in the visible part of 
+  # the terminal and pipe it to other applications.
+
+  alphabet = "jfkdls;ahgurieowpq"
+
+  # Array with all available hints.
+  #
+  # Each hint must have at least one of regex or hyperlinks and either an action 
+  # or a command.
+  [[hints.enabled]]
+    # Command which will be executed when the hint is clicked or selected with the binding.
+    #
+    # The hint's text is always attached as the last argument.
+    command = "xdg-open" # On Linux/BSD
+	
+	# When this is true, all OSC 8 escape sequence hyperlinks will 
+	# be included in the hints.
+    hyperlinks = true
+
+	# When this is true, heuristics will be used to shorten the 
+	# match if there are characters likely not to be part of the 
+	# hint (e.g. a trailing .). This is most useful for URIs and 
+	# applies only to regex matches.
+    post_processing = true
+
+    # When this is true, hints remain persistent after selection.
+    persist = false
+    
+	# See keyboard.bindings for documentation on available mods.
+    #
+    # The enabled field controls if the hint should be underlined 
+	# when hovering over the hint text with all mods pressed.
+    mouse.enabled = true
+
+	# See keyboard.bindings for documentation on available values.
+    #
+    # This controls which key binding is used to start the keyboard hint selection process.
+    binding = { key = "U", mods = "Control|Shift" }
+	
+	# Regex each line will be compared against.
+    regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
+
+# Keyboard
+[keyboard]
+  # To unset a default binding, you can use the action "ReceiveChar" to 
+  # remove it or "None" to inhibit any action.
+  #
+  # Multiple keybindings can be triggered by a single key press and will 
+  # be executed in the order they are defined in.
+  #
+  # Default: https://alacritty.org/config-alacritty-bindings.html
+  bindings = [
+    { key = "V",        	mods = "Command",       action = "Paste"			},
+    { key = "C",        	mods = "Command",       action = "Copy"				},
+    { key = "Q",        	mods = "Command",       action = "Quit"				},
+    { key = "N",        	mods = "Command",       action = "SpawnNewInstance"	},
+    { key = "Return",	  	mods = "Command",       action = "ToggleFullscreen"	},
+    { key = "Minus",    	mods = "Command|Shift", action = "ResetFontSize"	},
+    { key = "=",		  	mods = "Control",		action = "None" },
+    { key = "+",	      	mods = "Control|Shift",	action = "IncreaseFontSize" },
+    { key = "-",			mods = "Control",		action = "DecreaseFontSize" },
+
+    # shortcuts for tmux. the leader key is control-b (0x02)
+    { key = "T",        	mods = "Command",       chars = '\x02c'	},  # new tab
+    { key = "RBracket", 	mods = "Command|Shift",	chars = '\x02n'	},  # select next tab
+    { key = "LBracket", 	mods = "Command|Shift", chars = '\x02p'	},  # select previous tab
+    { key = "RBracket", 	mods = "Command",       chars = '\x02o'	},  # select next pane
+    { key = "LBracket", 	mods = "Command",       chars = '\x02;'	},  # select last (previously used) pane
+    { key = "F",        	mods = "Control",       chars = '\x02/'	}  # search (upwards) (see tmux.conf)
+  ]
+
+# Debug
+[debug]
+  # Display the time it takes to draw each frame.
+  render_timer = false
+
+  # Keep the log file after quitting Alacritty. 
+  persistent_logging = false
+
+  # log_level = "Off" | "Error" | "Warn" | "Info" | "Debug" | "Trace"
+  #
+  # To add extra libraries to logging ALACRITTY_EXTRA_LOG_TARGETS variable can be used.
+  log_level = "Warn"
+
+  # Log all received window events.
+  print_events = false
+
