@@ -7,7 +7,7 @@
 #
 # You can set shell.program to the path of your favorite shell, e.g. /bin/fish.
 # Entries in shell.args are passed unmodified as arguments to the shell.
-[shell]
+[terminal.shell]
   program = "/usr/bin/bash"
   args = ["-l", "-c", "tmux attach || tmux"]
 
